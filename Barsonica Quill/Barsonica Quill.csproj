@@ -158,6 +158,7 @@
     <Content Include="Icons\Close.png" />
     <Content Include="Icons\Find.png" />
     <Content Include="Icons\FindAndReplace.png" />
+    <Content Include="Icons\FontColor.png" />
     <Content Include="Icons\Italic.png" />
     <Content Include="Icons\Maximize.png" />
     <Content Include="Icons\Minimize.png" />
