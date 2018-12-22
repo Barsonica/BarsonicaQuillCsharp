@@ -404,7 +404,7 @@ namespace Barsonica_Quill
 
         private void Styles_EditButton_Click(object sender, EventArgs e)
         {
-            if(styles.ToArray().Length > 0)
+            if(styles.ToArray().Length > 0 && Styles_List.SelectedIndex >= 0)
             {
                 StyleDialog SD = new StyleDialog(Styles_List.Items[Styles_List.SelectedIndex].ToString());
                 if (SD.ShowDialog() == DialogResult.OK)
@@ -415,8 +415,11 @@ namespace Barsonica_Quill
         
         private void Styles_DelButton_Click(object sender, EventArgs e)
         {
-            Styles_List.Items.RemoveAt(Styles_List.SelectedIndex);
-            RefreshStyles();
+            if (styles.ToArray().Length > 0 && Styles_List.SelectedIndex >= 0)
+            {
+                styles.RemoveAt(Styles_List.SelectedIndex);
+                RefreshStyles();
+            }
         }
 
         void RefreshStyles()

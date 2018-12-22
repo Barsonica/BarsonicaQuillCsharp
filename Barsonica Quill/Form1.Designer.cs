@@ -942,7 +942,6 @@
             this.TopLabel.Text = "Barsonica Quill";
             this.TopLabel.DoubleClick += new System.EventHandler(this.App_Maximaze_Click);
             this.TopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
-            this.TopLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseMove);
             this.TopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseUp);
             // 
             // Form1
