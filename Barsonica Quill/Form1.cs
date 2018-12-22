@@ -40,6 +40,7 @@ namespace Barsonica_Quill
             }
             catch { }
             LoadStyles();
+            RefreshStyles();
 
             //set supported text formats
             openFileDialog.Filter = "All Files|*.*" + "|Plain text|*.txt" + "|Rich text format|*.rtf" /*+ "|Open Document|*.odt"*/;
@@ -462,19 +463,19 @@ namespace Barsonica_Quill
         void LoadStyles()
         {
             try
-            {/*
-                string[] file;
+            {
+                string[] fileContent;
                 using (StreamReader sr = new StreamReader(PersistentDataPath + Path.DirectorySeparatorChar + "styles.csv"))
                 {
-                    file = sr.ReadToEnd().Split('\n');
+                    fileContent = sr.ReadToEnd().Split('\n');
                 }
                 styles.Clear();
-                for(int i = 0; i< file.lenght; i++)
+                for(int i = 1; i< fileContent.Length-1; i++)
                 {
                     Style res = new Style();
-                    res.FromString(file[i]);
+                    res.FromString(fileContent[i]);
                     styles.Add(res);
-                }*/
+                }
             }
             catch
             {
@@ -573,14 +574,14 @@ namespace Barsonica_Quill
             WindowButtons.Location = new Point(this.Width - 97, 1);
 
             richTextBox.Size = new Size((int)(6* Scaling.Value), (int)(6 * Scaling.Value * 1.4));
-            richTextBox.Location = new Point((int)(CenterPanel.Width-20-richTextBox.Width)/2, 20);
+            richTextBox.Location = new Point((int)(TextsPanel.Width-20-richTextBox.Width)/2, 20);
             
             TopLabel.Location = new Point((this.Width-TopLabel.Width)/2, 6);
 
-            Scaling.Location = new Point(0,LeftPanel.Height - 19);
+            Scaling.Location = new Point(0,StylesPanel.Height - 19);
             ScaleLabel.Location = new Point(ScaleLabel.Location.X, Scaling.Location.Y - 15);
 
-            Styles.Size = new Size(LeftPanel.Width - 10, LeftPanel.Height - 42);
+            Styles.Size = new Size(StylesPanel.Width - 10, StylesPanel.Height - 42);
             Styles_List.Size = new Size(Styles.Width - 12, Styles.Height - 38);
             Styles_AddButton.Location = new Point(Styles_AddButton.Location.X, Styles.Height-28);
             Styles_EditButton.Location = new Point(Styles_EditButton.Location.X, Styles.Height - 28);
@@ -620,7 +621,7 @@ namespace Barsonica_Quill
         }
 
         //------------------------------    ooo   ---------------------------------
-
+        
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm AF = new AboutForm();
@@ -652,6 +653,49 @@ namespace Barsonica_Quill
         }
         public void FromString(string input)
         {
+            string[] Splitted = input.Split(';');
+            Name = Splitted[0];
+            try
+            {
+                font = new Font(Splitted[1], float.Parse(Splitted[2]));
+                FontColor = Color.FromArgb(byte.Parse(Splitted[3]), byte.Parse(Splitted[4]), byte.Parse(Splitted[5]));
+                BackColor = Color.FromArgb(byte.Parse(Splitted[6]), byte.Parse(Splitted[7]), byte.Parse(Splitted[8]));
+            }
+            catch
+            {
+                MessageBox.Show("error loading styles");
+            }
+
+            switch (Splitted[9].ToLower())
+            {
+                case "regular":
+                    fontStyle = FontStyle.Regular;
+                    break;
+                case "underline":
+                    fontStyle = FontStyle.Underline;
+                    break;
+                case "bold":
+                    fontStyle = FontStyle.Bold;
+                    break;
+                case "italic":
+                    fontStyle = FontStyle.Italic;
+                    break;
+            }
+
+            switch (Splitted[10].ToLower())
+            {
+                case "left":
+                    Align = HorizontalAlignment.Left;
+                    break;
+                case "right":
+                    Align = HorizontalAlignment.Right;
+                    break;
+                case "center":
+                    Align = HorizontalAlignment.Center;
+                    break;
+            }
+
+
 
         }
 
