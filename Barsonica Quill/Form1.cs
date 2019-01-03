@@ -17,6 +17,7 @@ namespace Barsonica_Quill
         {
             InitializeComponent();
             ResizeWindow();
+            timer.Start();
 
             //get installed fonts
             using (InstalledFontCollection fontsCollection = new InstalledFontCollection())
@@ -609,11 +610,11 @@ namespace Barsonica_Quill
             DraggingStartPoint = new Point(e.X, e.Y);
         }
 
-        private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
             if (Dragging)
             {
-                Point p = PointToScreen(e.Location);
+                Point p = MousePosition;
                 Location = new Point(p.X - this.DraggingStartPoint.X, p.Y - this.DraggingStartPoint.Y);
             }
         }

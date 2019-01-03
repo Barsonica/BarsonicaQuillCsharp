@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.File_ = new System.Windows.Forms.GroupBox();
             this.File_PrintButton = new System.Windows.Forms.Button();
@@ -113,6 +114,7 @@
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.TopLabel = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.File_.SuspendLayout();
             this.Find.SuspendLayout();
             this.Alignment.SuspendLayout();
@@ -520,7 +522,6 @@
             this.MenuStrip.Text = "MenuStrip";
             this.MenuStrip.DoubleClick += new System.EventHandler(this.App_Maximaze_Click);
             this.MenuStrip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
-            this.MenuStrip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseMove);
             this.MenuStrip.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseUp);
             // 
             // toolStripMenuItem1
@@ -944,6 +945,11 @@
             this.TopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             this.TopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseUp);
             // 
+            // timer
+            // 
+            this.timer.Interval = 20;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1071,6 +1077,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button Styles_DelButton;
         private System.Windows.Forms.ToolStripMenuItem deleteStylesToolStripMenuItem;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
