@@ -78,7 +78,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 21);
             this.label3.TabIndex = 3;
-            this.label3.Text = "0.6";
+            this.label3.Text = "1.0";
             // 
             // label4
             // 
@@ -104,11 +104,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Liberation Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(12, 101);
+            this.label6.Location = new System.Drawing.Point(25, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(290, 21);
+            this.label6.Size = new System.Drawing.Size(264, 21);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Distributed under GPLv3 Licence";
+            this.label6.Text = "Distributed under MIT Licence";
             // 
             // label7
             // 
