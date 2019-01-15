@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StyleDialog));
             this.Format_Text = new System.Windows.Forms.GroupBox();
             this.Text_FontSize = new System.Windows.Forms.NumericUpDown();
             this.Text_FontBox = new System.Windows.Forms.ComboBox();
             this.Text_UnderlineCheck = new System.Windows.Forms.CheckBox();
             this.Text_ItalicCheck = new System.Windows.Forms.CheckBox();
             this.Text_BoldCheck = new System.Windows.Forms.CheckBox();
+            this.Text_BackColorBox = new System.Windows.Forms.PictureBox();
+            this.Text_BackColorButton = new System.Windows.Forms.Button();
+            this.Text_ColorBox = new System.Windows.Forms.PictureBox();
             this.Text_ColorButton = new System.Windows.Forms.Button();
             this.Alignment = new System.Windows.Forms.GroupBox();
+            this.Alignment_Block = new System.Windows.Forms.CheckBox();
+            this.Alignment_Left = new System.Windows.Forms.CheckBox();
+            this.Alignment_Right = new System.Windows.Forms.CheckBox();
+            this.Alignment_Center = new System.Windows.Forms.CheckBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.OK_Button = new System.Windows.Forms.Button();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.Text_BackColorBox = new System.Windows.Forms.PictureBox();
-            this.Text_BackColorButton = new System.Windows.Forms.Button();
-            this.Text_ColorBox = new System.Windows.Forms.PictureBox();
-            this.Alignment_Block = new System.Windows.Forms.CheckBox();
-            this.Alignment_Left = new System.Windows.Forms.CheckBox();
-            this.Alignment_Right = new System.Windows.Forms.CheckBox();
-            this.Alignment_Center = new System.Windows.Forms.CheckBox();
             this.Format_Text.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Text_FontSize)).BeginInit();
-            this.Alignment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Text_BackColorBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Text_ColorBox)).BeginInit();
+            this.Alignment.SuspendLayout();
             this.SuspendLayout();
             // 
             // Format_Text
@@ -136,65 +137,6 @@
             this.Text_BoldCheck.TabIndex = 6;
             this.Text_BoldCheck.UseVisualStyleBackColor = true;
             // 
-            // Text_ColorButton
-            // 
-            this.Text_ColorButton.Location = new System.Drawing.Point(23, 46);
-            this.Text_ColorButton.Name = "Text_ColorButton";
-            this.Text_ColorButton.Size = new System.Drawing.Size(30, 30);
-            this.Text_ColorButton.TabIndex = 2;
-            this.Text_ColorButton.Text = "Select Color";
-            this.Text_ColorButton.UseVisualStyleBackColor = true;
-            this.Text_ColorButton.Click += new System.EventHandler(this.Text_ColorButton_Click);
-            // 
-            // Alignment
-            // 
-            this.Alignment.Controls.Add(this.Alignment_Block);
-            this.Alignment.Controls.Add(this.Alignment_Left);
-            this.Alignment.Controls.Add(this.Alignment_Right);
-            this.Alignment.Controls.Add(this.Alignment_Center);
-            this.Alignment.Location = new System.Drawing.Point(12, 12);
-            this.Alignment.Name = "Alignment";
-            this.Alignment.Size = new System.Drawing.Size(179, 50);
-            this.Alignment.TabIndex = 12;
-            this.Alignment.TabStop = false;
-            this.Alignment.Text = "Alignment";
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Location = new System.Drawing.Point(54, 191);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(135, 20);
-            this.NameTextBox.TabIndex = 13;
-            // 
-            // NameLabel
-            // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(13, 194);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(35, 13);
-            this.NameLabel.TabIndex = 14;
-            this.NameLabel.Text = "Name";
-            // 
-            // OK_Button
-            // 
-            this.OK_Button.Location = new System.Drawing.Point(12, 217);
-            this.OK_Button.Name = "OK_Button";
-            this.OK_Button.Size = new System.Drawing.Size(75, 23);
-            this.OK_Button.TabIndex = 15;
-            this.OK_Button.Text = "OK";
-            this.OK_Button.UseVisualStyleBackColor = true;
-            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
-            // 
-            // Cancel_Button
-            // 
-            this.Cancel_Button.Location = new System.Drawing.Point(116, 217);
-            this.Cancel_Button.Name = "Cancel_Button";
-            this.Cancel_Button.Size = new System.Drawing.Size(75, 23);
-            this.Cancel_Button.TabIndex = 16;
-            this.Cancel_Button.Text = "Cancel";
-            this.Cancel_Button.UseVisualStyleBackColor = true;
-            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
-            // 
             // Text_BackColorBox
             // 
             this.Text_BackColorBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -227,6 +169,29 @@
             this.Text_ColorBox.Size = new System.Drawing.Size(30, 30);
             this.Text_ColorBox.TabIndex = 3;
             this.Text_ColorBox.TabStop = false;
+            // 
+            // Text_ColorButton
+            // 
+            this.Text_ColorButton.Location = new System.Drawing.Point(23, 46);
+            this.Text_ColorButton.Name = "Text_ColorButton";
+            this.Text_ColorButton.Size = new System.Drawing.Size(30, 30);
+            this.Text_ColorButton.TabIndex = 2;
+            this.Text_ColorButton.Text = "Select Color";
+            this.Text_ColorButton.UseVisualStyleBackColor = true;
+            this.Text_ColorButton.Click += new System.EventHandler(this.Text_ColorButton_Click);
+            // 
+            // Alignment
+            // 
+            this.Alignment.Controls.Add(this.Alignment_Block);
+            this.Alignment.Controls.Add(this.Alignment_Left);
+            this.Alignment.Controls.Add(this.Alignment_Right);
+            this.Alignment.Controls.Add(this.Alignment_Center);
+            this.Alignment.Location = new System.Drawing.Point(12, 12);
+            this.Alignment.Name = "Alignment";
+            this.Alignment.Size = new System.Drawing.Size(179, 50);
+            this.Alignment.TabIndex = 12;
+            this.Alignment.TabStop = false;
+            this.Alignment.Text = "Alignment";
             // 
             // Alignment_Block
             // 
@@ -276,6 +241,42 @@
             this.Alignment_Center.UseVisualStyleBackColor = true;
             this.Alignment_Center.CheckedChanged += new System.EventHandler(this.ArrangmentChanged);
             // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(54, 191);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(135, 20);
+            this.NameTextBox.TabIndex = 13;
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(13, 194);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NameLabel.TabIndex = 14;
+            this.NameLabel.Text = "Name";
+            // 
+            // OK_Button
+            // 
+            this.OK_Button.Location = new System.Drawing.Point(12, 217);
+            this.OK_Button.Name = "OK_Button";
+            this.OK_Button.Size = new System.Drawing.Size(75, 23);
+            this.OK_Button.TabIndex = 15;
+            this.OK_Button.Text = "OK";
+            this.OK_Button.UseVisualStyleBackColor = true;
+            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
+            // 
+            // Cancel_Button
+            // 
+            this.Cancel_Button.Location = new System.Drawing.Point(116, 217);
+            this.Cancel_Button.Name = "Cancel_Button";
+            this.Cancel_Button.Size = new System.Drawing.Size(75, 23);
+            this.Cancel_Button.TabIndex = 16;
+            this.Cancel_Button.Text = "Cancel";
+            this.Cancel_Button.UseVisualStyleBackColor = true;
+            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
+            // 
             // StyleDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,13 +288,14 @@
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.Format_Text);
             this.Controls.Add(this.Alignment);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StyleDialog";
             this.Text = "StyleDialog";
             this.Format_Text.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Text_FontSize)).EndInit();
-            this.Alignment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Text_BackColorBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Text_ColorBox)).EndInit();
+            this.Alignment.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

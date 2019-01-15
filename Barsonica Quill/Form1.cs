@@ -624,12 +624,27 @@ namespace Barsonica_Quill
             Dragging = false;
         }
 
-        //------------------------------    ooo   ---------------------------------
+        //------------------------------    External dialogs   ---------------------------------
         
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm AF = new AboutForm();
             AF.ShowDialog();
+        }
+        
+        private void iconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iconsDialog iD = new iconsDialog();
+            iD.ShowDialog();
+
+            Alignment_BlockButton.BackgroundImage = iD.iconFiles[0];
+            Alignment_CenterButton.BackgroundImage = iD.iconFiles[1];
+            Alignment_LeftButton.BackgroundImage = iD.iconFiles[2];
+            Alignment_RightButton.BackgroundImage = iD.iconFiles[3];
+            Text_BackColorButton.BackgroundImage = iD.iconFiles[4];
+            Text_BoldCheck.BackgroundImage = iD.iconFiles[5];
+
+
         }
 
 
