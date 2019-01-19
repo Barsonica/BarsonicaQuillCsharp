@@ -635,19 +635,31 @@ namespace Barsonica_Quill
         private void iconsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iconsDialog iD = new iconsDialog();
-            iD.ShowDialog();
-
-            Alignment_BlockButton.BackgroundImage = iD.iconFiles[0];
-            Alignment_CenterButton.BackgroundImage = iD.iconFiles[1];
-            Alignment_LeftButton.BackgroundImage = iD.iconFiles[2];
-            Alignment_RightButton.BackgroundImage = iD.iconFiles[3];
-            Text_BackColorButton.BackgroundImage = iD.iconFiles[4];
-            Text_BoldCheck.BackgroundImage = iD.iconFiles[5];
-
-
+            if(DialogResult.OK == iD.ShowDialog())
+            {
+                Alignment_BlockButton.BackgroundImage = iD.iconFiles[0];
+                Alignment_CenterButton.BackgroundImage = iD.iconFiles[1];
+                Alignment_LeftButton.BackgroundImage = iD.iconFiles[2];
+                Alignment_RightButton.BackgroundImage = iD.iconFiles[3];
+                Text_BackColorButton.BackgroundImage = iD.iconFiles[4];
+                Text_BoldCheck.BackgroundImage = iD.iconFiles[5];
+                App_Close.BackgroundImage = iD.iconFiles[6];
+                Find_FindButton.BackgroundImage = iD.iconFiles[7];
+                Find_FindAndReplace.BackgroundImage = iD.iconFiles[8];
+                Text_ColorBox.BackgroundImage = iD.iconFiles[9];
+                Text_ItalicCheck.BackgroundImage = iD.iconFiles[10];
+                App_Maximaze.BackgroundImage = iD.iconFiles[11];
+                App_Minimaze.BackgroundImage = iD.iconFiles[12];
+                File_NewButton.BackgroundImage = iD.iconFiles[13];
+                File_OpenButton.BackgroundImage = iD.iconFiles[14];
+                File_PrintButton.BackgroundImage = iD.iconFiles[15];
+                File_SaveButton.BackgroundImage = iD.iconFiles[16];
+                Text_UnderlineCheck.BackgroundImage = iD.iconFiles[17];
+            }
+            
         }
 
-
+        
     }
 
     public struct Style

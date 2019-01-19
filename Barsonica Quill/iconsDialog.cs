@@ -15,6 +15,7 @@ namespace Barsonica_Quill
     {
         string folder = "";
         string[] icons;
+        string[] iconSets;
         public Image[] iconFiles = new Image[18];
 
         public iconsDialog()
@@ -46,11 +47,11 @@ namespace Barsonica_Quill
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //validate the selection
-            try
-            {
+            try {
                 for (int i = 0; i < 18; i++)
                 {
-                    iconFiles[i] = Bitmap.FromFile(folder + "\\" + comboBox.SelectedText + icons[i]);
+                    iconFiles[i] = Bitmap.FromFile(folder + "\\" + comboBox.SelectedIndex + icons[i]);
+                    MessageBox.Show(folder + "\\" + comboBox.SelectedText + icons[i]);
                 }
                 checkBox.Checked = true;
             }
@@ -58,13 +59,20 @@ namespace Barsonica_Quill
             {
                 checkBox.Checked = false;
             }
+                
+            
 
         }
 
         private void button_Click(object sender, EventArgs e)
         {
             //submit the result
+            if (checkBox.Checked)
+            {
+                this.Hide();
+                this.DialogResult = DialogResult.OK;
 
+            }
         }
 
         private void comboBox_Click(object sender, EventArgs e)
@@ -72,19 +80,11 @@ namespace Barsonica_Quill
             comboBox.Items.Clear();
 
             //load the folders
-            string iconFolder = "";
-            for(int i = 0;i< Application.ExecutablePath.Split('\\').Length - 1; i++)
+            folder = Path.GetDirectoryName(Application.ExecutablePath) + "\\Icons";
+            iconSets = Directory.GetDirectories(folder);
+            for(int i = 0;i< iconSets.Length;i++)
             {
-                iconFolder += Application.ExecutablePath.Split('\\')[i] + "\\";
-            }
-            iconFolder += "Icons";
-            folder = iconFolder;
-            
-            string[] directories = Directory.GetDirectories(folder);
-
-            for(int i = 0;i<directories.Length;i++)
-            {
-                comboBox.Items.Add(directories[i].Split('\\')[directories[i].Split('\\').Length-1]);
+                comboBox.Items.Add(iconSets[i].Split('\\')[iconSets[i].Split('\\').Length-1]);
             }
             
 
