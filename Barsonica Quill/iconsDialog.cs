@@ -53,7 +53,7 @@ namespace Barsonica_Quill
             try {
                 for (int i = 0; i < 18; i++)
                 {
-                    iconFiles[i] = new Bitmap(folder + sepChar + comboBox.Items[comboBox.SelectedIndex].ToString() + sepChar + icons[i]);s
+                    iconFiles[i] = new Bitmap(folder + sepChar + comboBox.Items[comboBox.SelectedIndex].ToString() + sepChar + icons[i]);
                 }
                 checkBox.Checked = true;
             }
@@ -61,8 +61,9 @@ namespace Barsonica_Quill
             {
                 checkBox.Checked = false;
             }
-                
-            
+            if (comboBox.SelectedIndex == 0)
+                checkBox.Checked = true;
+
 
         }
 
@@ -73,7 +74,8 @@ namespace Barsonica_Quill
             {
                 this.Hide();
                 this.DialogResult = DialogResult.OK;
-
+                if (comboBox.SelectedIndex == 0)
+                    this.DialogResult = DialogResult.Cancel;
             }
         }
 
@@ -82,6 +84,7 @@ namespace Barsonica_Quill
             comboBox.Items.Clear();
 
             //load the folders
+            comboBox.Items.Add("Default");  //defaultni
             folder = Path.GetDirectoryName(Application.ExecutablePath) + sepChar  + "Icons";
             iconSets = Directory.GetDirectories(folder);
             for(int i = 0;i< iconSets.Length;i++)

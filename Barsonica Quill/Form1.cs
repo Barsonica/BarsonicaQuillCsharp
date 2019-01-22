@@ -80,7 +80,7 @@ namespace Barsonica_Quill
             switch (openFileDialog.FileName.Split('.')[1])
             {
                 case "txt":
-                    richTextBox.LoadFile(openFileDialog.FileName);
+                    richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
                     originalFile = richTextBox.Text;
                     break;
                 case "rtf": 
@@ -106,7 +106,7 @@ namespace Barsonica_Quill
             richTextBox.LoadFile(filePath);
         }
 
-         //saving
+       //saving
         private void File_SaveButton_Click(object sender, EventArgs e)
         {
             if (!TopLabel.Text.Contains("."))
@@ -131,8 +131,9 @@ namespace Barsonica_Quill
                     default:
                         break;
                 }
+                TopLabel.Text = FileName + " - Barsonica Quill";
             }
-            TopLabel.Text = FileName + " - Barsonica Quill";
+            
             originalFile = richTextBox.Text;
             SaveStyles();
 
@@ -537,10 +538,13 @@ namespace Barsonica_Quill
                     return;
                 else if (Result == DialogResult.Yes)
                 {
-                    File_SaveButton_Click(sender,e);
+                    File_SaveButton_Click(sender, e);
                 }
-            }
-            Application.Exit();
+                else
+                    Application.Exit();
+                
+            }else
+                Application.Exit();
         }
 
         private void App_Maximaze_Click(object sender, EventArgs e)
@@ -656,7 +660,27 @@ namespace Barsonica_Quill
                 File_SaveButton.BackgroundImage = iD.iconFiles[16];
                 Text_UnderlineCheck.BackgroundImage = iD.iconFiles[17];
             }
-            
+            else
+            {
+                Alignment_BlockButton.BackgroundImage = Properties.Resources.Arrangment_Block;
+                Alignment_CenterButton.BackgroundImage = Properties.Resources.Arrangment_Center;
+                Alignment_LeftButton.BackgroundImage = Properties.Resources.Arrangment_Left;
+                Alignment_RightButton.BackgroundImage = Properties.Resources.Arrangment_Right;
+                Text_BackColorButton.BackgroundImage = Properties.Resources.BackColor;
+                Text_BoldCheck.BackgroundImage = Properties.Resources.Bold;
+                App_Close.BackgroundImage = Properties.Resources.Close;
+                Find_FindButton.BackgroundImage = Properties.Resources.Find;
+                Find_FindAndReplace.BackgroundImage = Properties.Resources.FindAndReplace;
+                Text_ColorButton.BackgroundImage = Properties.Resources.FontColor;
+                Text_ItalicCheck.BackgroundImage = Properties.Resources.Italic;
+                App_Maximaze.BackgroundImage = Properties.Resources.Maximize;
+                App_Minimaze.BackgroundImage = Properties.Resources.Minimize;
+                File_NewButton.BackgroundImage = Properties.Resources.New;
+                File_OpenButton.BackgroundImage = Properties.Resources.Open;
+                File_PrintButton.BackgroundImage = Properties.Resources.Print;
+                File_SaveButton.BackgroundImage = Properties.Resources.Save;
+                Text_UnderlineCheck.BackgroundImage = Properties.Resources.Underline;
+            }
         }
 
         
