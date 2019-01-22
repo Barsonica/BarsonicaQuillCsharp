@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +17,13 @@ namespace Barsonica_Quill
         string[] icons;
         string[] iconSets;
         public Image[] iconFiles = new Image[18];
+        char sepChar;
 
         public iconsDialog()
         {
             InitializeComponent();
+
+            sepChar = Path.DirectorySeparatorChar;
 
             icons = new string[18];
             icons[0] = "arrangmentBlock.png";
@@ -50,8 +53,7 @@ namespace Barsonica_Quill
             try {
                 for (int i = 0; i < 18; i++)
                 {
-                    iconFiles[i] = Bitmap.FromFile(folder + "\\" + comboBox.SelectedIndex + icons[i]);
-                    MessageBox.Show(folder + "\\" + comboBox.SelectedText + icons[i]);
+                    iconFiles[i] = new Bitmap(folder + sepChar + comboBox.Items[comboBox.SelectedIndex].ToString() + sepChar + icons[i]);s
                 }
                 checkBox.Checked = true;
             }
@@ -80,11 +82,11 @@ namespace Barsonica_Quill
             comboBox.Items.Clear();
 
             //load the folders
-            folder = Path.GetDirectoryName(Application.ExecutablePath) + "\\Icons";
+            folder = Path.GetDirectoryName(Application.ExecutablePath) + sepChar  + "Icons";
             iconSets = Directory.GetDirectories(folder);
             for(int i = 0;i< iconSets.Length;i++)
             {
-                comboBox.Items.Add(iconSets[i].Split('\\')[iconSets[i].Split('\\').Length-1]);
+                comboBox.Items.Add(iconSets[i].Split(sepChar)[iconSets[i].Split(sepChar).Length-1]);
             }
             
 
