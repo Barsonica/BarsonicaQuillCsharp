@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
@@ -646,7 +646,7 @@ namespace Barsonica_Quill
                 App_Close.BackgroundImage = iD.iconFiles[6];
                 Find_FindButton.BackgroundImage = iD.iconFiles[7];
                 Find_FindAndReplace.BackgroundImage = iD.iconFiles[8];
-                Text_ColorBox.BackgroundImage = iD.iconFiles[9];
+                Text_ColorButton.BackgroundImage = iD.iconFiles[9];
                 Text_ItalicCheck.BackgroundImage = iD.iconFiles[10];
                 App_Maximaze.BackgroundImage = iD.iconFiles[11];
                 App_Minimaze.BackgroundImage = iD.iconFiles[12];
