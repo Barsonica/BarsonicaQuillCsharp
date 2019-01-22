@@ -1,4 +1,4 @@
-﻿namespace Barsonica_Quill
+namespace Barsonica_Quill
 {
     partial class AboutForm
     {
