@@ -98,6 +98,8 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findAndReplaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.iconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,8 +117,6 @@
             this.TopLabel = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.iconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.File_.SuspendLayout();
             this.Find.SuspendLayout();
             this.Alignment.SuspendLayout();
@@ -775,6 +775,18 @@
             this.findAndReplaceToolStripMenuItem.Text = "Find and Replace";
             this.findAndReplaceToolStripMenuItem.Click += new System.EventHandler(this.Find_FindAndReplace_Click);
             // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(161, 6);
+            // 
+            // iconsToolStripMenuItem
+            // 
+            this.iconsToolStripMenuItem.Name = "iconsToolStripMenuItem";
+            this.iconsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.iconsToolStripMenuItem.Text = "Icons";
+            this.iconsToolStripMenuItem.Click += new System.EventHandler(this.iconsToolStripMenuItem_Click);
+            // 
             // stylesToolStripMenuItem
             // 
             this.stylesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -953,18 +965,6 @@
             // 
             this.timer.Interval = 20;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(161, 6);
-            // 
-            // iconsToolStripMenuItem
-            // 
-            this.iconsToolStripMenuItem.Name = "iconsToolStripMenuItem";
-            this.iconsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.iconsToolStripMenuItem.Text = "Icons";
-            this.iconsToolStripMenuItem.Click += new System.EventHandler(this.iconsToolStripMenuItem_Click);
             // 
             // Form1
             // 
