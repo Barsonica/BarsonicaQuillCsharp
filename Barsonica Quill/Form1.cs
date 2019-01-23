@@ -10,7 +10,7 @@ namespace Barsonica_Quill
 {
     public partial class Form1 : Form
     {
-        static char SepChar = '\\';
+        static char SepChar = Path.DirectorySeparatorChar;
         public PrintTools pt = new PrintTools();  // instantiate printing manager
 
         public Form1()
@@ -48,11 +48,8 @@ namespace Barsonica_Quill
             saveFileDialog.Filter = "Plain text|*.txt" + "|Rich text format|*.rtf" /*+ "|Open Document|*.odt"*/;
 
         }
-
-
         
-
-        //------------------------------    File operations   ---------------------------------
+        #region File Operations
 
         string FileName, FilePath, originalFile;
         string PersistentDataPath;
@@ -63,12 +60,13 @@ namespace Barsonica_Quill
             FileName = "";
             FilePath = "";
             TopLabel.Text = "Barsonica Quill";
+            this.Text = "Barsonica Quill";
         }
 
         private void File_OpenButton_Click(object sender, EventArgs e)
         {
                 //show dialog and validate
-            if (openFileDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
                 return;
             if(!openFileDialog.CheckFileExists)
                 return;
@@ -94,6 +92,7 @@ namespace Barsonica_Quill
                 
             }
             TopLabel.Text = FileName + " - Barsonica Quill";
+            this.Text = FileName + " - Barsonica Quill";
         }
         
         void LoadODT(string filePath)
@@ -109,7 +108,7 @@ namespace Barsonica_Quill
        //saving
         private void File_SaveButton_Click(object sender, EventArgs e)
         {
-            if (!TopLabel.Text.Contains("."))
+            if (!TopLabel.Text.Contains(".") || this.Text.Contains("."))
                 saveAsToolStripMenuItem_Click(sender, e);
             else
             {
@@ -132,6 +131,7 @@ namespace Barsonica_Quill
                         break;
                 }
                 TopLabel.Text = FileName + " - Barsonica Quill";
+                this.Text = FileName + " - Barsonica Quill";
             }
             
             originalFile = richTextBox.Text;
@@ -167,6 +167,7 @@ namespace Barsonica_Quill
             }
 
             TopLabel.Text = FileName + " - Barsonica Quill";
+            this.Text = FileName + " - Barsonica Quill";
             originalFile = richTextBox.Text;
             SaveStyles();
         }
@@ -209,16 +210,18 @@ namespace Barsonica_Quill
         //when text is changed
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (richTextBox.Text != originalFile && !TopLabel.Text.Contains("*"))
+            if (richTextBox.Text != originalFile && (!TopLabel.Text.Contains("*")|| !this.Text.Contains("*")))
             {
                 TopLabel.Text += "*";
+                this.Text += "*";
             }
 
-            if (richTextBox.Text.Contains("NYAN CAT"))
+            if (richTextBox.Text.Contains("NYAN CAT")) //easter egg
                 NyanEgg();
         }
+        #endregion
 
-        //------------------------------    Edit        ---------------------------------
+        #region Mistakes
 
         private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -229,8 +232,9 @@ namespace Barsonica_Quill
         {
             richTextBox.Redo();
         }
+        #endregion
 
-        //------------------------------    Easter eggs ---------------------------------
+        #region Easter Eggs
 
         void NyanEgg()
         {
@@ -239,7 +243,9 @@ namespace Barsonica_Quill
             System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=QH2-TGUlwu4");
         }
 
-        //------------------------------    Formating   ---------------------------------
+        #endregion
+
+        #region Formating
 
         //when selected, changes font
         bool change = true;
@@ -368,7 +374,9 @@ namespace Barsonica_Quill
             }
         }
 
-        //------------------------------    Alignment   --------------------------------
+        #endregion
+
+        #region Alignment
 
         private void Alignment_LeftButton_Click(object sender, EventArgs e)
         {
@@ -390,7 +398,9 @@ namespace Barsonica_Quill
             richTextBox.SelectionAlignment = HorizontalAlignment.Left;
         }
 
-        //------------------------------    Styles  ---------------------------------
+        #endregion
+
+        #region Styles
 
         List<Style> styles = new List<Style>();
         
@@ -487,8 +497,10 @@ namespace Barsonica_Quill
 
             }
         }
-        
-        //------------------------------    Find    ---------------------------------
+
+        #endregion
+
+        #region Find
 
         private void Find_FindButton_Click(object sender, EventArgs e)
         {
@@ -515,7 +527,9 @@ namespace Barsonica_Quill
             richTextBox.Focus();
         }
 
-        //------------------------------    Print   ---------------------------------
+        #endregion
+
+        #region Print
 
         private void File_PrintButton_Click(object sender, EventArgs e)
         {
@@ -523,15 +537,17 @@ namespace Barsonica_Quill
             pt.GeneralPrintForm("Basic Print", richTextBox.Rtf, ref ex);  // Constructor 1 demo
             return;
         }
-        
-            //------------------------------    Window buttons   ---------------------------------
 
-            bool Maximized = false;
+        #endregion
+
+        #region Window buttons
+
+        bool Maximized = false;
         Point OriginLoc = new Point(0,0);
         
-        private void App_Close_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (TopLabel.Text.Contains("*"))
+            if (TopLabel.Text.Contains("*") || this.Text.Contains("*"))
             {
                 DialogResult Result = MessageBox.Show("Do you want to save the file?", "Quit application", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (Result == DialogResult.Cancel)
@@ -540,11 +556,12 @@ namespace Barsonica_Quill
                 {
                     File_SaveButton_Click(sender, e);
                 }
-                else
-                    Application.Exit();
-                
-            }else
-                Application.Exit();
+            }
+        }
+
+        private void App_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void App_Maximaze_Click(object sender, EventArgs e)
@@ -570,7 +587,9 @@ namespace Barsonica_Quill
             this.WindowState = FormWindowState.Minimized;
         }
 
-        //------------------------------    Resizing        ----------------------------------
+        #endregion
+
+        #region Resize
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
@@ -602,8 +621,19 @@ namespace Barsonica_Quill
             richTextBox.ZoomFactor = (float)((Scaling.Value + 0.0) / 100);
             ResizeWindow();
         }
+        
+        private void richTextBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if(((Scaling.Value + e.Delta / 120) < Scaling.Maximum) && ((Scaling.Value + e.Delta / 120) > Scaling.Minimum) && Control.ModifierKeys == Keys.Control)
+            {
+                Scaling.Value += e.Delta / 120;
+                Scaling_ValueChanged(sender, e);
+            }
+        }
 
-        //------------------------------    Windows dragging   ---------------------------------
+        #endregion
+
+        #region Window dragging
 
         bool Dragging = false;
         Point DraggingStartPoint = new Point(0, 0);
@@ -628,8 +658,33 @@ namespace Barsonica_Quill
             Dragging = false;
         }
 
-        //------------------------------    External dialogs   ---------------------------------
-        
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (hideToolStripMenuItem.Checked)
+            {
+                hideToolStripMenuItem.Checked = false;
+                App_Close.Visible = false;
+                App_Maximaze.Visible = false;
+                App_Minimaze.Visible = false;
+                TopLabel.Visible = false;
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            else
+            {
+                hideToolStripMenuItem.Checked = true;
+                App_Close.Visible = true;
+                App_Maximaze.Visible = true;
+                App_Minimaze.Visible = true;
+                TopLabel.Visible = true;
+                this.FormBorderStyle = FormBorderStyle.None;
+                Form1_ResizeEnd(sender,e);
+            }
+        }
+
+        #endregion
+
+        #region External dialogs
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm AF = new AboutForm();
@@ -659,31 +714,36 @@ namespace Barsonica_Quill
                 File_PrintButton.BackgroundImage = iD.iconFiles[15];
                 File_SaveButton.BackgroundImage = iD.iconFiles[16];
                 Text_UnderlineCheck.BackgroundImage = iD.iconFiles[17];
+                undo.BackgroundImage = iD.iconFiles[18];
+                redo.BackgroundImage = iD.iconFiles[19];
+
             }
             else
             {
-                Alignment_BlockButton.BackgroundImage = Properties.Resources.Arrangment_Block;
-                Alignment_CenterButton.BackgroundImage = Properties.Resources.Arrangment_Center;
-                Alignment_LeftButton.BackgroundImage = Properties.Resources.Arrangment_Left;
-                Alignment_RightButton.BackgroundImage = Properties.Resources.Arrangment_Right;
-                Text_BackColorButton.BackgroundImage = Properties.Resources.BackColor;
-                Text_BoldCheck.BackgroundImage = Properties.Resources.Bold;
-                App_Close.BackgroundImage = Properties.Resources.Close;
-                Find_FindButton.BackgroundImage = Properties.Resources.Find;
-                Find_FindAndReplace.BackgroundImage = Properties.Resources.FindAndReplace;
-                Text_ColorButton.BackgroundImage = Properties.Resources.FontColor;
-                Text_ItalicCheck.BackgroundImage = Properties.Resources.Italic;
-                App_Maximaze.BackgroundImage = Properties.Resources.Maximize;
-                App_Minimaze.BackgroundImage = Properties.Resources.Minimize;
-                File_NewButton.BackgroundImage = Properties.Resources.New;
-                File_OpenButton.BackgroundImage = Properties.Resources.Open;
-                File_PrintButton.BackgroundImage = Properties.Resources.Print;
-                File_SaveButton.BackgroundImage = Properties.Resources.Save;
-                Text_UnderlineCheck.BackgroundImage = Properties.Resources.Underline;
+                Alignment_BlockButton.BackgroundImage = Properties.Resources.arrangmentBlock;
+                Alignment_CenterButton.BackgroundImage = Properties.Resources.arrangmentCenter;
+                Alignment_LeftButton.BackgroundImage = Properties.Resources.arrangmentLeft;
+                Alignment_RightButton.BackgroundImage = Properties.Resources.arrangmentRight;
+                Text_BackColorButton.BackgroundImage = Properties.Resources.backColor;
+                Text_BoldCheck.BackgroundImage = Properties.Resources.bold;
+                App_Close.BackgroundImage = Properties.Resources.close;
+                Find_FindButton.BackgroundImage = Properties.Resources.find;
+                Find_FindAndReplace.BackgroundImage = Properties.Resources.findAndReplace;
+                Text_ColorButton.BackgroundImage = Properties.Resources.fontColor;
+                Text_ItalicCheck.BackgroundImage = Properties.Resources.italic;
+                App_Maximaze.BackgroundImage = Properties.Resources.maximize;
+                App_Minimaze.BackgroundImage = Properties.Resources.minimize;
+                File_NewButton.BackgroundImage = Properties.Resources._new;
+                File_OpenButton.BackgroundImage = Properties.Resources.open;
+                File_PrintButton.BackgroundImage = Properties.Resources.print;
+                File_SaveButton.BackgroundImage = Properties.Resources.save;
+                Text_UnderlineCheck.BackgroundImage = Properties.Resources.underline;
+                undo.BackgroundImage = Properties.Resources.undo;
+                redo.BackgroundImage = Properties.Resources.redo;
             }
         }
+        #endregion
 
-        
     }
 
     public struct Style

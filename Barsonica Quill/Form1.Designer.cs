@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.File_ = new System.Windows.Forms.GroupBox();
             this.File_PrintButton = new System.Windows.Forms.Button();
             this.File_NewButton = new System.Windows.Forms.Button();
@@ -100,6 +99,7 @@
             this.findAndReplaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.iconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,6 +108,9 @@
             this.ScaleLabel = new System.Windows.Forms.Label();
             this.Scaling = new System.Windows.Forms.HScrollBar();
             this.ControlPanel = new System.Windows.Forms.Panel();
+            this.mistakes = new System.Windows.Forms.GroupBox();
+            this.undo = new System.Windows.Forms.Button();
+            this.redo = new System.Windows.Forms.Button();
             this.WindowButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.App_Minimaze = new System.Windows.Forms.Button();
             this.App_Maximaze = new System.Windows.Forms.Button();
@@ -128,6 +131,7 @@
             this.MenuStrip.SuspendLayout();
             this.StylesPanel.SuspendLayout();
             this.ControlPanel.SuspendLayout();
+            this.mistakes.SuspendLayout();
             this.WindowButtons.SuspendLayout();
             this.TextsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -147,7 +151,7 @@
             // 
             // File_PrintButton
             // 
-            this.File_PrintButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Print;
+            this.File_PrintButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.print;
             this.File_PrintButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.File_PrintButton.FlatAppearance.BorderSize = 0;
             this.File_PrintButton.Location = new System.Drawing.Point(131, 14);
@@ -159,7 +163,7 @@
             // 
             // File_NewButton
             // 
-            this.File_NewButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.New;
+            this.File_NewButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources._new;
             this.File_NewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.File_NewButton.FlatAppearance.BorderSize = 0;
             this.File_NewButton.Location = new System.Drawing.Point(23, 14);
@@ -171,7 +175,7 @@
             // 
             // File_OpenButton
             // 
-            this.File_OpenButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Open;
+            this.File_OpenButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.open;
             this.File_OpenButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.File_OpenButton.FlatAppearance.BorderSize = 0;
             this.File_OpenButton.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -184,7 +188,7 @@
             // 
             // File_SaveButton
             // 
-            this.File_SaveButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Save;
+            this.File_SaveButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.save;
             this.File_SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.File_SaveButton.FlatAppearance.BorderSize = 0;
             this.File_SaveButton.Location = new System.Drawing.Point(95, 14);
@@ -201,7 +205,7 @@
             this.Find.Controls.Add(this.Find_TextBox1);
             this.Find.Controls.Add(this.Find_FindAndReplace);
             this.Find.Controls.Add(this.Find_FindButton);
-            this.Find.Location = new System.Drawing.Point(10, 247);
+            this.Find.Location = new System.Drawing.Point(10, 313);
             this.Find.Name = "Find";
             this.Find.Size = new System.Drawing.Size(179, 112);
             this.Find.TabIndex = 10;
@@ -235,7 +239,7 @@
             // 
             // Find_FindAndReplace
             // 
-            this.Find_FindAndReplace.BackgroundImage = global::Barsonica_Quill.Properties.Resources.FindAndReplace;
+            this.Find_FindAndReplace.BackgroundImage = global::Barsonica_Quill.Properties.Resources.findAndReplace;
             this.Find_FindAndReplace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Find_FindAndReplace.Location = new System.Drawing.Point(6, 69);
             this.Find_FindAndReplace.Name = "Find_FindAndReplace";
@@ -247,7 +251,7 @@
             // Find_FindButton
             // 
             this.Find_FindButton.BackColor = System.Drawing.Color.Transparent;
-            this.Find_FindButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Find;
+            this.Find_FindButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.find;
             this.Find_FindButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Find_FindButton.Location = new System.Drawing.Point(6, 19);
             this.Find_FindButton.Name = "Find_FindButton";
@@ -262,7 +266,7 @@
             this.Alignment.Controls.Add(this.Alignment_RightButton);
             this.Alignment.Controls.Add(this.Alignment_CenterButton);
             this.Alignment.Controls.Add(this.Alignment_LeftButton);
-            this.Alignment.Location = new System.Drawing.Point(10, 60);
+            this.Alignment.Location = new System.Drawing.Point(10, 126);
             this.Alignment.Name = "Alignment";
             this.Alignment.Size = new System.Drawing.Size(179, 50);
             this.Alignment.TabIndex = 9;
@@ -271,8 +275,8 @@
             // 
             // Alignment_BlockButton
             // 
+            this.Alignment_BlockButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.arrangmentBlock;
             this.Alignment_BlockButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Alignment_BlockButton.Image = global::Barsonica_Quill.Properties.Resources.Arrangment_Block;
             this.Alignment_BlockButton.Location = new System.Drawing.Point(131, 14);
             this.Alignment_BlockButton.Name = "Alignment_BlockButton";
             this.Alignment_BlockButton.Size = new System.Drawing.Size(30, 30);
@@ -283,7 +287,7 @@
             // Alignment_RightButton
             // 
             this.Alignment_RightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Alignment_RightButton.Image = ((System.Drawing.Image)(resources.GetObject("Alignment_RightButton.Image")));
+            this.Alignment_RightButton.Image = global::Barsonica_Quill.Properties.Resources.arrangmentRight;
             this.Alignment_RightButton.Location = new System.Drawing.Point(95, 14);
             this.Alignment_RightButton.Name = "Alignment_RightButton";
             this.Alignment_RightButton.Size = new System.Drawing.Size(30, 30);
@@ -294,9 +298,8 @@
             // Alignment_CenterButton
             // 
             this.Alignment_CenterButton.BackColor = System.Drawing.Color.Transparent;
-            this.Alignment_CenterButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Alignment_CenterButton.BackgroundImage")));
+            this.Alignment_CenterButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.arrangmentCenter;
             this.Alignment_CenterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Alignment_CenterButton.Image = ((System.Drawing.Image)(resources.GetObject("Alignment_CenterButton.Image")));
             this.Alignment_CenterButton.Location = new System.Drawing.Point(59, 14);
             this.Alignment_CenterButton.Name = "Alignment_CenterButton";
             this.Alignment_CenterButton.Size = new System.Drawing.Size(30, 30);
@@ -307,10 +310,9 @@
             // Alignment_LeftButton
             // 
             this.Alignment_LeftButton.BackColor = System.Drawing.Color.Transparent;
-            this.Alignment_LeftButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Alignment_LeftButton.BackgroundImage")));
+            this.Alignment_LeftButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.arrangmentLeft;
             this.Alignment_LeftButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Alignment_LeftButton.FlatAppearance.BorderSize = 0;
-            this.Alignment_LeftButton.Image = ((System.Drawing.Image)(resources.GetObject("Alignment_LeftButton.Image")));
             this.Alignment_LeftButton.Location = new System.Drawing.Point(23, 14);
             this.Alignment_LeftButton.Name = "Alignment_LeftButton";
             this.Alignment_LeftButton.Size = new System.Drawing.Size(30, 30);
@@ -329,7 +331,7 @@
             this.Format_Text.Controls.Add(this.Text_BackColorBox);
             this.Format_Text.Controls.Add(this.Text_ColorBox);
             this.Format_Text.Controls.Add(this.Text_ColorButton);
-            this.Format_Text.Location = new System.Drawing.Point(10, 116);
+            this.Format_Text.Location = new System.Drawing.Point(10, 182);
             this.Format_Text.Name = "Format_Text";
             this.Format_Text.Size = new System.Drawing.Size(179, 125);
             this.Format_Text.TabIndex = 8;
@@ -371,7 +373,7 @@
             // Text_UnderlineCheck
             // 
             this.Text_UnderlineCheck.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Text_UnderlineCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Underline;
+            this.Text_UnderlineCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.underline;
             this.Text_UnderlineCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Text_UnderlineCheck.Location = new System.Drawing.Point(106, 88);
             this.Text_UnderlineCheck.Name = "Text_UnderlineCheck";
@@ -383,7 +385,7 @@
             // Text_ItalicCheck
             // 
             this.Text_ItalicCheck.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Text_ItalicCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Italic;
+            this.Text_ItalicCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.italic;
             this.Text_ItalicCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Text_ItalicCheck.Location = new System.Drawing.Point(70, 88);
             this.Text_ItalicCheck.Name = "Text_ItalicCheck";
@@ -395,7 +397,7 @@
             // Text_BackColorButton
             // 
             this.Text_BackColorButton.BackColor = System.Drawing.Color.Transparent;
-            this.Text_BackColorButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.BackColor;
+            this.Text_BackColorButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.backColor;
             this.Text_BackColorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Text_BackColorButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Text_BackColorButton.Location = new System.Drawing.Point(131, 46);
@@ -408,7 +410,7 @@
             // Text_BoldCheck
             // 
             this.Text_BoldCheck.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Text_BoldCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Bold;
+            this.Text_BoldCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.bold;
             this.Text_BoldCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Text_BoldCheck.Location = new System.Drawing.Point(34, 88);
             this.Text_BoldCheck.Name = "Text_BoldCheck";
@@ -439,7 +441,7 @@
             // 
             // Text_ColorButton
             // 
-            this.Text_ColorButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.FontColor;
+            this.Text_ColorButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.fontColor;
             this.Text_ColorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Text_ColorButton.Location = new System.Drawing.Point(23, 46);
             this.Text_ColorButton.Name = "Text_ColorButton";
@@ -549,82 +551,82 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
             // 
             // NewStripMenuItem
             // 
             this.NewStripMenuItem.Name = "NewStripMenuItem";
-            this.NewStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.NewStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.NewStripMenuItem.Text = "&New";
             this.NewStripMenuItem.Click += new System.EventHandler(this.File_NewButton_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.File_OpenButton_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(140, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.File_SaveButton_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveAsToolStripMenuItem.Text = "&Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // saveCopyToolStripMenuItem
             // 
             this.saveCopyToolStripMenuItem.Name = "saveCopyToolStripMenuItem";
-            this.saveCopyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveCopyToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveCopyToolStripMenuItem.Text = "Save Copy";
             this.saveCopyToolStripMenuItem.Click += new System.EventHandler(this.saveCopyToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(140, 6);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.printToolStripMenuItem.Text = "&Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.File_PrintButton_Click);
             // 
             // printPrewievToolStripMenuItem
             // 
             this.printPrewievToolStripMenuItem.Name = "printPrewievToolStripMenuItem";
-            this.printPrewievToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printPrewievToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.printPrewievToolStripMenuItem.Text = "Print Preview";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.App_Close_Click);
             // 
@@ -643,7 +645,8 @@
             this.findToolStripMenuItem,
             this.findAndReplaceToolStripMenuItem,
             this.toolStripSeparator8,
-            this.iconsToolStripMenuItem});
+            this.iconsToolStripMenuItem,
+            this.hideToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -787,6 +790,13 @@
             this.iconsToolStripMenuItem.Text = "Icons";
             this.iconsToolStripMenuItem.Click += new System.EventHandler(this.iconsToolStripMenuItem_Click);
             // 
+            // hideToolStripMenuItem
+            // 
+            this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
+            this.hideToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.hideToolStripMenuItem.Text = "Hide header";
+            this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
+            // 
             // stylesToolStripMenuItem
             // 
             this.stylesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -800,21 +810,21 @@
             // editStyleToolStripMenuItem
             // 
             this.editStyleToolStripMenuItem.Name = "editStyleToolStripMenuItem";
-            this.editStyleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editStyleToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.editStyleToolStripMenuItem.Text = "&Edit style";
             this.editStyleToolStripMenuItem.Click += new System.EventHandler(this.Styles_EditButton_Click);
             // 
             // newStyleToolStripMenuItem
             // 
             this.newStyleToolStripMenuItem.Name = "newStyleToolStripMenuItem";
-            this.newStyleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newStyleToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.newStyleToolStripMenuItem.Text = "&New style";
             this.newStyleToolStripMenuItem.Click += new System.EventHandler(this.Styles_AddButton_Click);
             // 
             // deleteStylesToolStripMenuItem
             // 
             this.deleteStylesToolStripMenuItem.Name = "deleteStylesToolStripMenuItem";
-            this.deleteStylesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteStylesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.deleteStylesToolStripMenuItem.Text = "Delete styles";
             this.deleteStylesToolStripMenuItem.Click += new System.EventHandler(this.Styles_DelButton_Click);
             // 
@@ -857,6 +867,7 @@
             // 
             this.ControlPanel.BackColor = System.Drawing.Color.White;
             this.ControlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ControlPanel.Controls.Add(this.mistakes);
             this.ControlPanel.Controls.Add(this.Format_Text);
             this.ControlPanel.Controls.Add(this.Find);
             this.ControlPanel.Controls.Add(this.Alignment);
@@ -866,6 +877,43 @@
             this.ControlPanel.Name = "ControlPanel";
             this.ControlPanel.Size = new System.Drawing.Size(200, 635);
             this.ControlPanel.TabIndex = 11;
+            // 
+            // mistakes
+            // 
+            this.mistakes.Controls.Add(this.undo);
+            this.mistakes.Controls.Add(this.redo);
+            this.mistakes.Location = new System.Drawing.Point(10, 61);
+            this.mistakes.Name = "mistakes";
+            this.mistakes.Size = new System.Drawing.Size(179, 50);
+            this.mistakes.TabIndex = 12;
+            this.mistakes.TabStop = false;
+            this.mistakes.Text = "Mistakes";
+            // 
+            // undo
+            // 
+            this.undo.BackColor = System.Drawing.Color.Transparent;
+            this.undo.BackgroundImage = global::Barsonica_Quill.Properties.Resources.undo;
+            this.undo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.undo.FlatAppearance.BorderSize = 0;
+            this.undo.Location = new System.Drawing.Point(59, 14);
+            this.undo.Name = "undo";
+            this.undo.Size = new System.Drawing.Size(30, 30);
+            this.undo.TabIndex = 7;
+            this.undo.UseVisualStyleBackColor = false;
+            this.undo.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
+            // 
+            // redo
+            // 
+            this.redo.BackColor = System.Drawing.Color.Transparent;
+            this.redo.BackgroundImage = global::Barsonica_Quill.Properties.Resources.redo;
+            this.redo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.redo.FlatAppearance.BorderSize = 0;
+            this.redo.Location = new System.Drawing.Point(95, 14);
+            this.redo.Name = "redo";
+            this.redo.Size = new System.Drawing.Size(30, 30);
+            this.redo.TabIndex = 11;
+            this.redo.UseVisualStyleBackColor = false;
+            this.redo.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // WindowButtons
             // 
@@ -881,7 +929,7 @@
             // App_Minimaze
             // 
             this.App_Minimaze.BackColor = System.Drawing.Color.White;
-            this.App_Minimaze.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Minimize;
+            this.App_Minimaze.BackgroundImage = global::Barsonica_Quill.Properties.Resources.minimize;
             this.App_Minimaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.App_Minimaze.FlatAppearance.BorderSize = 0;
             this.App_Minimaze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -891,12 +939,13 @@
             this.App_Minimaze.Size = new System.Drawing.Size(25, 20);
             this.App_Minimaze.TabIndex = 14;
             this.App_Minimaze.UseVisualStyleBackColor = false;
+            this.App_Minimaze.Visible = false;
             this.App_Minimaze.Click += new System.EventHandler(this.App_Minimaze_Click);
             // 
             // App_Maximaze
             // 
             this.App_Maximaze.BackColor = System.Drawing.Color.White;
-            this.App_Maximaze.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Maximize;
+            this.App_Maximaze.BackgroundImage = global::Barsonica_Quill.Properties.Resources.maximize;
             this.App_Maximaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.App_Maximaze.FlatAppearance.BorderSize = 0;
             this.App_Maximaze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -906,12 +955,13 @@
             this.App_Maximaze.Size = new System.Drawing.Size(25, 20);
             this.App_Maximaze.TabIndex = 13;
             this.App_Maximaze.UseVisualStyleBackColor = false;
+            this.App_Maximaze.Visible = false;
             this.App_Maximaze.Click += new System.EventHandler(this.App_Maximaze_Click);
             // 
             // App_Close
             // 
             this.App_Close.BackColor = System.Drawing.Color.White;
-            this.App_Close.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Close;
+            this.App_Close.BackgroundImage = global::Barsonica_Quill.Properties.Resources.close;
             this.App_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.App_Close.FlatAppearance.BorderSize = 0;
             this.App_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -920,6 +970,7 @@
             this.App_Close.Size = new System.Drawing.Size(25, 20);
             this.App_Close.TabIndex = 12;
             this.App_Close.UseVisualStyleBackColor = false;
+            this.App_Close.Visible = false;
             this.App_Close.Click += new System.EventHandler(this.App_Close_Click);
             // 
             // TextsPanel
@@ -945,11 +996,13 @@
             this.richTextBox.Text = "";
             this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
+            this.richTextBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.richTextBox_MouseWheel);
             // 
             // TopLabel
             // 
             this.TopLabel.AutoSize = true;
             this.TopLabel.BackColor = System.Drawing.Color.White;
+            this.TopLabel.Enabled = false;
             this.TopLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TopLabel.ForeColor = System.Drawing.Color.Black;
             this.TopLabel.Location = new System.Drawing.Point(483, 6);
@@ -957,6 +1010,7 @@
             this.TopLabel.Size = new System.Drawing.Size(98, 16);
             this.TopLabel.TabIndex = 17;
             this.TopLabel.Text = "Barsonica Quill";
+            this.TopLabel.Visible = false;
             this.TopLabel.DoubleClick += new System.EventHandler(this.App_Maximaze_Click);
             this.TopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
             this.TopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseUp);
@@ -979,12 +1033,12 @@
             this.Controls.Add(this.ControlPanel);
             this.Controls.Add(this.StylesPanel);
             this.Controls.Add(this.MenuStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::Barsonica_Quill.Properties.Resources.icon1;
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quill";
+            this.Text = "Barsonica Quill";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.File_.ResumeLayout(false);
             this.Find.ResumeLayout(false);
@@ -1000,6 +1054,7 @@
             this.StylesPanel.ResumeLayout(false);
             this.StylesPanel.PerformLayout();
             this.ControlPanel.ResumeLayout(false);
+            this.mistakes.ResumeLayout(false);
             this.WindowButtons.ResumeLayout(false);
             this.TextsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1096,6 +1151,10 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem iconsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
+        private System.Windows.Forms.Button redo;
+        private System.Windows.Forms.Button undo;
+        private System.Windows.Forms.GroupBox mistakes;
     }
 }
 

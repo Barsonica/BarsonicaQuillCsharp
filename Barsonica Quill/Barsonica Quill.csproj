@@ -150,32 +150,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Icons\Icon.ico" />
-    <None Include="Icons\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\220px-Copyleft.svg.png" />
-    <Content Include="Icons\Arrangment_Block.png" />
-    <Content Include="Icons\Arrangment_Center.png" />
-    <Content Include="Icons\Arrangment_Left.png" />
-    <Content Include="Icons\Arrangment_Right.png" />
-    <Content Include="Icons\BackColor.png" />
-    <Content Include="Icons\Bold.png" />
-    <Content Include="Icons\Close.png" />
-    <Content Include="Icons\Find.png" />
-    <Content Include="Icons\FindAndReplace.png" />
-    <Content Include="Icons\FontColor.png" />
-    <Content Include="Icons\Italic.png" />
-    <Content Include="Icons\Maximize.png" />
-    <Content Include="Icons\Minimize.png" />
-    <Content Include="Icons\New.png" />
-    <Content Include="Icons\Open.png" />
-    <Content Include="Icons\Print.png" />
-    <Content Include="Icons\Save.png" />
-    <Content Include="Icons\Underline.png" />
+    <Content Include="Icons\arrangmentBlock.png" />
+    <Content Include="Icons\arrangmentCenter.png" />
+    <Content Include="Icons\arrangmentLeft.png" />
+    <Content Include="Icons\arrangmentRight.png" />
+    <Content Include="Icons\backColor.png" />
+    <Content Include="Icons\bold.png" />
+    <Content Include="Icons\close.png" />
+    <Content Include="Icons\copyleft.png" />
+    <Content Include="Icons\find.png" />
+    <Content Include="Icons\findAndReplace.png" />
+    <Content Include="Icons\fontColor.png" />
+    <Content Include="Icons\icon.ico" />
+    <Content Include="Icons\icon.png" />
+    <Content Include="Icons\italic.png" />
+    <Content Include="Icons\maximize.png" />
+    <Content Include="Icons\minimize.png" />
+    <Content Include="Icons\new.png" />
+    <Content Include="Icons\open.png" />
+    <Content Include="Icons\print.png" />
+    <Content Include="Icons\redo.png" />
+    <Content Include="Icons\save.png" />
+    <Content Include="Icons\underline.png" />
+    <Content Include="Icons\undo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

@@ -16,7 +16,7 @@ namespace Barsonica_Quill
         string folder = "";
         string[] icons;
         string[] iconSets;
-        public Image[] iconFiles = new Image[18];
+        public Image[] iconFiles = new Image[20];
         char sepChar;
 
         public iconsDialog()
@@ -25,7 +25,7 @@ namespace Barsonica_Quill
 
             sepChar = Path.DirectorySeparatorChar;
 
-            icons = new string[18];
+            icons = new string[20];
             icons[0] = "arrangmentBlock.png";
             icons[1] = "arrangmentCenter.png";
             icons[2] = "arrangmentLeft.png";
@@ -44,6 +44,8 @@ namespace Barsonica_Quill
             icons[15] = "print.png";
             icons[16] = "save.png";
             icons[17] = "underline.png";
+            icons[18] = "undo.png";
+            icons[19] = "redo.png";
 
         }
 
@@ -51,7 +53,7 @@ namespace Barsonica_Quill
         {
             //validate the selection
             try {
-                for (int i = 0; i < 18; i++)
+                for (int i = 0; i < iconFiles.Length; i++)
                 {
                     iconFiles[i] = new Bitmap(folder + sepChar + comboBox.Items[comboBox.SelectedIndex].ToString() + sepChar + icons[i]);
                 }
@@ -85,7 +87,7 @@ namespace Barsonica_Quill
 
             //load the folders
             comboBox.Items.Add("Default");  //defaultni
-            folder = Path.GetDirectoryName(Application.ExecutablePath) + sepChar  + "Icons";
+            folder = Path.GetDirectoryName(Application.ExecutablePath) + sepChar  + "icons";
             iconSets = Directory.GetDirectories(folder);
             for(int i = 0;i< iconSets.Length;i++)
             {

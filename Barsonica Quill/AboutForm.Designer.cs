@@ -42,7 +42,7 @@ namespace Barsonica_Quill
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Copyleft;
+            this.pictureBox1.BackgroundImage = global::Barsonica_Quill.Properties.Resources.copyleft;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(277, 43);
             this.pictureBox1.Name = "pictureBox1";

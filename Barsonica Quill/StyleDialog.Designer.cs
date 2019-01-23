@@ -107,7 +107,7 @@
             // Text_UnderlineCheck
             // 
             this.Text_UnderlineCheck.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Text_UnderlineCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Underline;
+            this.Text_UnderlineCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.underline;
             this.Text_UnderlineCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Text_UnderlineCheck.Location = new System.Drawing.Point(114, 82);
             this.Text_UnderlineCheck.Name = "Text_UnderlineCheck";
@@ -118,7 +118,7 @@
             // Text_ItalicCheck
             // 
             this.Text_ItalicCheck.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Text_ItalicCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Italic;
+            this.Text_ItalicCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.italic;
             this.Text_ItalicCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Text_ItalicCheck.Location = new System.Drawing.Point(78, 82);
             this.Text_ItalicCheck.Name = "Text_ItalicCheck";
@@ -129,7 +129,7 @@
             // Text_BoldCheck
             // 
             this.Text_BoldCheck.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Text_BoldCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Bold;
+            this.Text_BoldCheck.BackgroundImage = global::Barsonica_Quill.Properties.Resources.bold;
             this.Text_BoldCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Text_BoldCheck.Location = new System.Drawing.Point(42, 82);
             this.Text_BoldCheck.Name = "Text_BoldCheck";
@@ -150,7 +150,7 @@
             // Text_BackColorButton
             // 
             this.Text_BackColorButton.BackColor = System.Drawing.Color.Transparent;
-            this.Text_BackColorButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.BackColor;
+            this.Text_BackColorButton.BackgroundImage = global::Barsonica_Quill.Properties.Resources.backColor;
             this.Text_BackColorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Text_BackColorButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Text_BackColorButton.Location = new System.Drawing.Point(95, 46);
@@ -196,7 +196,7 @@
             // Alignment_Block
             // 
             this.Alignment_Block.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Alignment_Block.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Arrangment_Block;
+            this.Alignment_Block.BackgroundImage = global::Barsonica_Quill.Properties.Resources.arrangmentBlock;
             this.Alignment_Block.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Alignment_Block.Location = new System.Drawing.Point(129, 14);
             this.Alignment_Block.Name = "Alignment_Block";
@@ -208,7 +208,7 @@
             // Alignment_Left
             // 
             this.Alignment_Left.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Alignment_Left.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Arrangment_Left;
+            this.Alignment_Left.BackgroundImage = global::Barsonica_Quill.Properties.Resources.arrangmentLeft;
             this.Alignment_Left.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Alignment_Left.Location = new System.Drawing.Point(21, 14);
             this.Alignment_Left.Name = "Alignment_Left";
@@ -220,7 +220,7 @@
             // Alignment_Right
             // 
             this.Alignment_Right.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Alignment_Right.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Arrangment_Right;
+            this.Alignment_Right.BackgroundImage = global::Barsonica_Quill.Properties.Resources.arrangmentRight;
             this.Alignment_Right.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Alignment_Right.Location = new System.Drawing.Point(93, 14);
             this.Alignment_Right.Name = "Alignment_Right";
@@ -232,7 +232,7 @@
             // Alignment_Center
             // 
             this.Alignment_Center.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Alignment_Center.BackgroundImage = global::Barsonica_Quill.Properties.Resources.Arrangment_Center;
+            this.Alignment_Center.BackgroundImage = global::Barsonica_Quill.Properties.Resources.arrangmentCenter;
             this.Alignment_Center.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Alignment_Center.Location = new System.Drawing.Point(57, 14);
             this.Alignment_Center.Name = "Alignment_Center";
