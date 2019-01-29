@@ -80,8 +80,15 @@ namespace Barsonica_Quill
             switch (openFileDialog.FileName.Split('.')[1])
             {
                 case "txt":
-                    richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                    originalFile = richTextBox.Text;
+                    try
+                    {
+                        richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                        originalFile = richTextBox.Text;
+                    }
+                    catch (FieldAccessException)
+                    {
+                        MessageBox.Show("Insufficient file access");
+                    }
                     break;
                 case "rtf": 
                     LoadRTF(openFileDialog.FileName);
@@ -104,7 +111,14 @@ namespace Barsonica_Quill
 
         void LoadRTF(string filePath)
         {
-            richTextBox.LoadFile(filePath);
+            try
+            {
+                richTextBox.LoadFile(filePath);
+            }
+            catch (FieldAccessException)
+            {
+                MessageBox.Show("Insufficient file access");
+            }
         }
 
        //saving
@@ -119,8 +133,15 @@ namespace Barsonica_Quill
                     case "txt":
                         using (StreamWriter sw = new StreamWriter(FilePath))
                         {
-                            sw.Write(richTextBox.Text);
-                            sw.Flush();
+                            try
+                            {
+                                sw.Write(richTextBox.Text);
+                                sw.Flush();
+                            }
+                            catch (FieldAccessException)
+                            {
+                                MessageBox.Show("Insufficient file access");
+                            }
                         }
                         break;
                     case "odt":
@@ -155,9 +176,16 @@ namespace Barsonica_Quill
                 case 1: //txt
                     using (StreamWriter sw = new StreamWriter(FilePath))
                     {
-                        sw.Write(richTextBox.Text);
-                        sw.Flush();
-                        originalFile = richTextBox.Text;
+                        try
+                        {
+                            sw.Write(richTextBox.Text);
+                            sw.Flush();
+                            originalFile = richTextBox.Text;
+                        }
+                        catch (FieldAccessException)
+                        {
+                            MessageBox.Show("Insufficient file access");
+                        }
                     }
                     break;
                 case 2: //rtf
@@ -185,8 +213,15 @@ namespace Barsonica_Quill
                 case 1: //txt
                     using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
                     {
-                        sw.Write(richTextBox.Text);
-                        sw.Flush();
+                        try
+                        {
+                            sw.Write(richTextBox.Text);
+                            sw.Flush();
+                        }
+                        catch (FieldAccessException)
+                        {
+                            MessageBox.Show("Insufficient file access");
+                        }
                     }
                     break;
                 case 2: //rtf
@@ -199,16 +234,23 @@ namespace Barsonica_Quill
             SaveStyles();
         }
 
+        void SaveRTF(string filePath)
+        {
+            try
+            {
+                richTextBox.SaveFile(filePath);
+            }
+            catch(FieldAccessException)
+            {
+                MessageBox.Show("Insufficient file access");
+            }
+        }
+
         void SaveODT(string filePath)
         {
 
         }
-
-        void SaveRTF(string filePath)
-        {
-            richTextBox.SaveFile(filePath);
-        }
-
+        
         //when text is changed
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
