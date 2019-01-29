@@ -1039,7 +1039,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barsonica Quill";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.ResizeBegin += new System.EventHandler(this.Form1_ResizeEnd);
             this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
+            this.DoubleClick += new System.EventHandler(this.Form1_ResizeEnd);
             this.File_.ResumeLayout(false);
             this.Find.ResumeLayout(false);
             this.Find.PerformLayout();

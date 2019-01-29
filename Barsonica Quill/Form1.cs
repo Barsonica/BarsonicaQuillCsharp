@@ -39,7 +39,9 @@ namespace Barsonica_Quill
                 if (!Directory.Exists(PersistentDataPath))
                     Directory.CreateDirectory(PersistentDataPath);
             }
-            catch { }
+            catch {
+                MessageBox.Show("Cannot access Appdata");
+            }
             LoadStyles();
             RefreshStyles();
 
@@ -108,7 +110,7 @@ namespace Barsonica_Quill
        //saving
         private void File_SaveButton_Click(object sender, EventArgs e)
         {
-            if (!TopLabel.Text.Contains(".") || this.Text.Contains("."))
+            if (!TopLabel.Text.Contains(".") || !this.Text.Contains("."))
                 saveAsToolStripMenuItem_Click(sender, e);
             else
             {
@@ -150,7 +152,7 @@ namespace Barsonica_Quill
 
             switch (saveFileDialog.FilterIndex)
             {
-                case 2: //txt
+                case 1: //txt
                     using (StreamWriter sw = new StreamWriter(FilePath))
                     {
                         sw.Write(richTextBox.Text);
@@ -158,10 +160,10 @@ namespace Barsonica_Quill
                         originalFile = richTextBox.Text;
                     }
                     break;
-                case 3: //rtf
+                case 2: //rtf
                     SaveRTF(FilePath);
                     break;
-                case 4: //odt
+                case 3: //odt
                     SaveODT(FilePath);
                     break;
             }
@@ -566,22 +568,27 @@ namespace Barsonica_Quill
 
         private void App_Maximaze_Click(object sender, EventArgs e)
         {
-            if (Maximized)
+
+            if (hideToolStripMenuItem.Checked)
             {
-                this.Size = new System.Drawing.Size(1150, 700);
-                this.Location = OriginLoc;
-                Maximized = false;
+                if (Maximized)
+                {
+                    this.Size = new System.Drawing.Size(1150, 700);
+                    this.Location = OriginLoc;
+                    Maximized = false;
+                }
+                else
+                {
+                    this.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                    OriginLoc = this.Location;
+                    this.Location = new Point(0, 0);
+                    Maximized = true;
+                }
+                ResizeWindow();
             }
-            else
-            {
-                this.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
-                OriginLoc = this.Location;
-                this.Location = new Point(0, 0);
-                Maximized = true;
-            }
-            ResizeWindow();
         }
         
+
         private void App_Minimaze_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -640,13 +647,17 @@ namespace Barsonica_Quill
 
         private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
         {
-            Dragging = true;
-            DraggingStartPoint = new Point(e.X, e.Y);
+            if(hideToolStripMenuItem.Checked)
+            {
+                Dragging = true;
+                DraggingStartPoint = new Point(e.X, e.Y);
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (Dragging)
+            ResizeWindow();
+            if (Dragging && hideToolStripMenuItem.Checked)
             {
                 Point p = MousePosition;
                 Location = new Point(p.X - this.DraggingStartPoint.X, p.Y - this.DraggingStartPoint.Y);
@@ -660,25 +671,26 @@ namespace Barsonica_Quill
 
         private void hideToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (hideToolStripMenuItem.Checked)
-            {
-                hideToolStripMenuItem.Checked = false;
-                App_Close.Visible = false;
-                App_Maximaze.Visible = false;
-                App_Minimaze.Visible = false;
-                TopLabel.Visible = false;
-                this.FormBorderStyle = FormBorderStyle.Sizable;
-            }
-            else
-            {
-                hideToolStripMenuItem.Checked = true;
-                App_Close.Visible = true;
-                App_Maximaze.Visible = true;
-                App_Minimaze.Visible = true;
-                TopLabel.Visible = true;
-                this.FormBorderStyle = FormBorderStyle.None;
-                Form1_ResizeEnd(sender,e);
-            }
+                if (hideToolStripMenuItem.Checked)
+                {
+                    hideToolStripMenuItem.Checked = false;
+                    App_Close.Visible = false;
+                    App_Maximaze.Visible = false;
+                    App_Minimaze.Visible = false;
+                    TopLabel.Visible = false;
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+                }
+                else
+                {
+                    hideToolStripMenuItem.Checked = true;
+                    App_Close.Visible = true;
+                    App_Maximaze.Visible = true;
+                    App_Minimaze.Visible = true;
+                    TopLabel.Visible = true;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    Form1_ResizeEnd(sender, e);
+                }
+            
         }
 
         #endregion
